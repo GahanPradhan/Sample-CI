@@ -9,7 +9,7 @@ def calculate_average(grades):
     return sum(grades) / len(grades)
 
 # Open a text file to write the results
-with open("students_average_grades.txt", "w") as file:
+with open("output.txt", "w") as file:
     for student in students:
         # Calculate average grade for each student
         avg_grade = calculate_average(student["grades"])
@@ -17,4 +17,4 @@ with open("students_average_grades.txt", "w") as file:
         # Write the result to the file
         file.write(f"{student['name']} - Average Grade: {avg_grade:.2f}\n")
 
-print("Average grades have been written to 'students_average_grades.txt'.")
+print("Average grades have been written to 'output.txt'.")
