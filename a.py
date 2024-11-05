@@ -1,25 +1,20 @@
-# calculate_grades.py
+students = [
+    {"name": "Alice", "grades": [85, 90, 78]},
+    {"name": "Bob", "grades": [88, 92, 80]},
+    {"name": "Charlie", "grades": [95, 85, 82]},
+]
 
+# Function to calculate average grade
 def calculate_average(grades):
-    if not grades:
-        return 0
     return sum(grades) / len(grades)
 
-def main():
-    # Sample list of student grades
-    students_grades = {
-        "Alice": [85, 90, 78],
-        "Bob": [92, 88, 84],
-        "Charlie": [70, 75, 80],
-        "Diana": [88, 90, 85]
-    }
+# Open a text file to write the results
+with open("students_average_grades.txt", "w") as file:
+    for student in students:
+        # Calculate average grade for each student
+        avg_grade = calculate_average(student["grades"])
+        
+        # Write the result to the file
+        file.write(f"{student['name']} - Average Grade: {avg_grade:.2f}\n")
 
-    # Calculate and save average grades
-    with open("average_grades.txt", "w") as file:
-        for student, grades in students_grades.items():
-            average_grade = calculate_average(grades)
-            file.write(f"{student}: {average_grade:.2f}\n")
-            print(f"{student}'s average grade: {average_grade:.2f}")
-
-if __name__ == "__main__":
-    main()
+print("Average grades have been written to 'students_average_grades.txt'.")
